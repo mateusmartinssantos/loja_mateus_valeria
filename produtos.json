@@ -1,7 +1,7 @@
 [
   {
     "id": "A001",
-    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "nome": "Caixinha Adesivos Island Sunshine 50 pçs 50 adesivos (2 de cada modelo) medindo entre 2 e 4 cm para Planner, Bullet Journal, Scrapbook",
     "preco": 5.00,
     "disponivel": 3,
     "categoria": "Adesivo",
@@ -399,4 +399,5 @@
     "categoria": "martelo",
     "imagem": "src/adesivo_vintage_floral.jpg"
   }
+
 ]
