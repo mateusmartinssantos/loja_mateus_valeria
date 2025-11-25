@@ -1,0 +1,402 @@
+[
+  {
+    "id": "A001",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 3,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A002",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A003",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 2,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A004",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A005",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 6,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A006",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 3,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A007",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 2,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A008",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A009",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 1,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A010",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A011",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 7,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A012",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A013",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 6,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A014",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 8,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A015",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A016",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 3,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A017",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A018",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 2,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A019",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A020",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 6,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A021",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 3,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A022",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 2,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A023",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A024",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 1,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A025",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A026",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 7,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A027",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A028",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 6,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A029",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 8,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A030",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A031",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 3,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A032",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A033",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 2,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A034",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A035",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 6,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A036",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 3,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A037",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 2,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A038",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A039",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 1,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A040",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A041",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 7,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A042",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A043",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 6,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A044",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 8,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A045",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A046",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 3,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A047",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 5,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  },
+  {
+    "id": "A048",
+    "nome": "Caixinha Adesivos Cute Animals Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 2,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_cute_animals.jpg"
+  },
+  {
+    "id": "A049",
+    "nome": "Caixinha Adesivos Island Sunshine Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 4,
+    "categoria": "Adesivo",
+    "imagem": "src/adesivo_island_sunchine.jpg"
+  },
+  {
+    "id": "A050",
+    "nome": "Caixinha Adesivos Vintage Floral Caixinha 50 pçs para Planner, Bullet Journal, Scrapbook",
+    "preco": 5.00,
+    "disponivel": 6,
+    "categoria": "martelo",
+    "imagem": "src/adesivo_vintage_floral.jpg"
+  }
+]
