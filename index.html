@@ -204,6 +204,7 @@ async function loadProducts() {
 }
 
 // Converte CSV para array de produtos
+// Converte CSV para array de produtos
 function parseCSVToProducts(csvText) {
     const lines = csvText.split('\n').filter(line => line.trim());
     const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
@@ -226,7 +227,13 @@ function parseCSVToProducts(csvText) {
             // Adiciona imagens das colunas 6 em diante
             for (let j = 6; j < values.length; j++) {
                 if (values[j] && values[j].trim()) {
-                    product.imagens.push(values[j].trim());
+                    const nomeImagem = values[j].trim();
+                    // Se for apenas o nome do arquivo, adiciona o caminho completo
+                    if (nomeImagem && !nomeImagem.startsWith('http') && !nomeImagem.startsWith('/')) {
+                        product.imagens.push(`src/img/${nomeImagem}`);
+                    } else {
+                        product.imagens.push(nomeImagem);
+                    }
                 }
             }
             
