@@ -536,7 +536,7 @@ function generateOrderList() {
             const product = allProducts.find(p => p.id === productId);
             if (product) {
                 const itemTotal = qty * product.preco;
-                orderItems.push(`• ${qty}x ${product.nome} - R$ ${itemTotal.toFixed(2).replace('.', ',')}`);
+                orderItems.push(`• (Cód: ${product.id}) :${qty}x ${product.nome} - R$ ${itemTotal.toFixed(2).replace('.', ',')}`);
                 subtotal += itemTotal;
                 itemCount += qty;
             }
