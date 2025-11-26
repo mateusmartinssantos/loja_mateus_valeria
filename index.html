@@ -208,6 +208,7 @@ async function loadProducts() {
 
 // Converte CSV para array de produtos
 // Converte CSV para array de produtos
+// Função corrigida para parse de CSV
 function parseCSVToProducts(csvText) {
     const lines = csvText.split('\n').filter(line => line.trim());
     const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
@@ -216,14 +217,41 @@ function parseCSVToProducts(csvText) {
     
     for (let i = 1; i < lines.length; i++) {
         const values = parseCSVLine(lines[i]);
-        if (values.length >= 6) { // Mínimo de colunas necessárias
+        if (values.length >= 6) {
+            
+            // CORREÇÃO: Tratamento robusto para valores numéricos
+            const precoValue = values[4] || '0';
+            const disponivelValue = values[5] || '0';
+            
+            // Remove caracteres não numéricos exceto ponto e vírgula
+            const precoClean = precoValue.toString().replace(/[^\d,.]/g, '');
+            const disponivelClean = disponivelValue.toString().replace(/[^\d]/g, '');
+            
+            // Converte para número
+            let preco = 0;
+            let disponivel = 0;
+            
+            // Tratamento do preço (pode ter vírgula como separador decimal)
+            if (precoClean.includes(',')) {
+                preco = parseFloat(precoClean.replace(',', '.'));
+            } else {
+                preco = parseFloat(precoClean);
+            }
+            
+            // Tratamento do disponível (sempre inteiro)
+            disponivel = parseInt(disponivelClean);
+            
+            // Se for NaN, define como 0
+            if (isNaN(preco)) preco = 0;
+            if (isNaN(disponivel)) disponivel = 0;
+            
             const product = {
                 id: values[0] || `prod${i}`,
                 nome: values[1] || 'Sem nome',
                 descricao: values[2] || '',
                 categoria: values[3] || 'Geral',
-                preco: parseFloat(values[4]) || 0,
-                disponivel: parseInt(values[5]) || 0,
+                preco: preco,
+                disponivel: disponivel,
                 imagens: []
             };
             
@@ -231,7 +259,6 @@ function parseCSVToProducts(csvText) {
             for (let j = 6; j < values.length; j++) {
                 if (values[j] && values[j].trim()) {
                     const nomeImagem = values[j].trim();
-                    // Se for apenas o nome do arquivo, adiciona o caminho completo
                     if (nomeImagem && !nomeImagem.startsWith('http') && !nomeImagem.startsWith('/')) {
                         product.imagens.push(`src/img/${nomeImagem}`);
                     } else {
@@ -240,12 +267,23 @@ function parseCSVToProducts(csvText) {
                 }
             }
             
-            // Se não tiver imagens, usa placeholder
             if (product.imagens.length === 0) {
                 product.imagens = ['https://via.placeholder.com/300x200?text=Imagem+Indisponível'];
             }
             
             products.push(product);
+            
+            // DEBUG: Log para verificar os valores
+            console.log(`Produto ${i}:`, {
+                id: product.id,
+                nome: product.nome,
+                precoRaw: values[4],
+                precoClean: precoClean,
+                precoFinal: product.preco,
+                disponivelRaw: values[5],
+                disponivelClean: disponivelClean,
+                disponivelFinal: product.disponivel
+            });
         }
     }
     
@@ -336,11 +374,11 @@ function renderCatalog() {
     const productsToDisplay = filteredProducts.slice(startIndex, endIndex);
 
     productsToDisplay.forEach(product => {
-        const availabilityClass = product.disponivel > 10 ? 'in-stock' : 
+        const availabilityClass = product.disponivel > 3 ? 'in-stock' : 
                                  product.disponivel > 0 ? 'low-stock' : 'out-of-stock';
-        const availabilityIcon = product.disponivel > 10 ? 'fa-check-circle' : 
+        const availabilityIcon = product.disponivel > 3 ? 'fa-check-circle' : 
                                 product.disponivel > 0 ? 'fa-exclamation-circle' : 'fa-times-circle';
-        const availabilityText = product.disponivel > 10 ? `Disponível: ${product.disponivel}` : 
+        const availabilityText = product.disponivel > 3 ? `Disponível: ${product.disponivel}` : 
                                 product.disponivel > 0 ? `Poucas unidades: ${product.disponivel}` : 'Indisponível';
 
         const currentQty = cartItems[product.id] || 0;
