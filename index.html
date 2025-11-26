@@ -506,15 +506,15 @@ function generateOrderList() {
         return;
     }
 
-    let listText = `Olá! Gostaria de fazer o pedido de materiais de Scrapbook:\n\n`;
+    let listText = `Olá! Gostaria de fazer o pedido de produto(s):\n\n`;
     listText += orderItems.join('\n');
     listText += `\n\n`;
     listText += `Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
     listText += `Total de itens: ${itemCount}\n\n`;
     listText += `Por favor, confirme a disponibilidade e informe as formas de pagamento e entrega.\n\n`;
-    listText += `Nome: _________\n`;
-    listText += `WhatsApp: _________\n`;
-    listText += `Endereço para entrega: _________`;
+    listText += `Nome: \n`;
+    listText += `WhatsApp: \n`;
+    listText += `Endereço para entrega:`;
 
     orderListElement.value = listText;
     
@@ -646,4 +646,5 @@ searchInput.addEventListener('input', () => {
 });
     </script>
 </body>
+
 </html>
