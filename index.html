@@ -3,49 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Produtos </title>
+    <title>Catálogo MV - Promoções</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="./src/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./src/img/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="./src/img/favicon.png">
     
     <style>
-    /* CSS básico para teste */
-    .image-modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.9);
-    }
-    .modal-content {
-        position: relative;
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .close-modal {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-</style>
+        /* Estilos para promoções e melhorias */
+        .price-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .current-price {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #e74c3c;
+        }
+
+        .original-price {
+            font-size: 1rem;
+            color: #7f8c8d;
+            text-decoration: line-through;
+        }
+
+   
+
+        .promo-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .product-card {
+            position: relative;
+        }
+
+        .urgency-badge {
+            background: #f39c12;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            margin-left: 5px;
+        }
+
+        .buy-now-btn {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .buy-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        /* Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            z-index: 1001;
+        }
+
+        .modal-nav-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .modal-prev {
+            left: 20px;
+        }
+
+        .modal-next {
+            right: 20px;
+        }
+
+        .image-indicator {
+            display: inline-block;
+            margin-left: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        #discount-row {
+            display: none;
+        }
+
+        .product-description {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Versão Details/Summary para descrição */
+        .descricao-detalhes {
+            border: none;
+        }
+
+        .descricao-resumo {
+            cursor: pointer;
+            list-style: none;
+            display: inline;
+        }
+
+        .descricao-resumo::-webkit-details-marker {
+            display: none;
+        }
+
+        .descricao-curta {
+            display: inline;
+        }
+
+        .ler-mais-texto {
+            color: #3498db;
+            font-weight: bold;
+            margin-left: 4px;
+            cursor: pointer;
+        }
+
+        .ler-mais-texto:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        .descricao-completa {
+            margin-top: 8px;
+            display: block;
+            color: #666;
+        }
+
+        /* Remove o estilo padrão do details */
+        .descricao-detalhes[open] .ler-mais-texto {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1></i> Catálogo MV</h1>
-            <p>Encontre diversos produtos. Faça seu pedido diretamente pelo WhatsApp!</p>
+            <h1>🛍️ Catálogo MV - PROMOÇÕES</h1>
+            <p>🎯 Ofertas especiais! Frete grátis acima de R$ 50 • Descontos imperdíveis</p>
         </header>
 
         <div class="controls">
@@ -59,10 +219,10 @@
                 </select>
             </div>
             <div class="cart-icon">
-                <button class="btn btn-primary" onclick="generateOrderList()">
+                <button class="btn btn-primary" onclick="scrollToOrderSection()">
                     <i class="fas fa-shopping-cart"></i> Ver Pedido
+                    <span id="cartBadge" class="cart-badge" style="display: none;">0</span>
                 </button>
-                <span id="cartBadge" class="cart-badge" style="display: none;">0</span>
             </div>
         </div>
 
@@ -71,7 +231,7 @@
         <div id="catalog">
             <div class="loading">
                 <i class="fas fa-spinner fa-spin"></i>
-                <p>Carregando produtos...</p>
+                <p>Carregando ofertas especiais...</p>
             </div>
         </div>
 
@@ -89,9 +249,9 @@
                 <button class="btn btn-primary" onclick="copyOrderList()">
                     <i class="fas fa-copy"></i> Copiar Pedido
                 </button>
-                <a id="whatsappLink" class="btn btn-success" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Enviar no WhatsApp
-                </a>
+                <button class="btn btn-success" onclick="sendOrder()">
+                    <i class="fab fa-whatsapp"></i> Finalizar Compra
+                </button>
             </div>
             <textarea id="order-list" placeholder="Seu pedido aparecerá aqui..."></textarea>
             
@@ -101,12 +261,16 @@
                     <span>Subtotal:</span>
                     <span id="subtotal">R$ 0,00</span>
                 </div>
+                <div class="summary-row" id="discount-row">
+                    <span>Descontos:</span>
+                    <span id="discount">-R$ 0,00</span>
+                </div>
                 <div class="summary-row">
-                    <span>Frete (a combinar):</span>
-                    <span>—</span>
+                    <span>Frete (grátis acima de R$ 50):</span>
+                    <span id="shipping">—</span>
                 </div>
                 <div class="summary-row summary-total">
-                    <span>Total estimado:</span>
+                    <span>Total:</span>
                     <span id="total">R$ 0,00</span>
                 </div>
             </div>
@@ -121,9 +285,9 @@
     </div>
 
     <script>
-// CONFIGURAÇÃO - EDITE AQUI!
-const GOOGLE_SHEET_ID = '1VpdN6kkVCwsT_zJKJSX5MsmDh-g6xcag_LwJXjETJl8'; // Ex: 1XyZ123abc...
-const SHEET_NAME = 'Página1'; // Nome da aba da planilha
+// CONFIGURAÇÃO
+const GOOGLE_SHEET_ID = '1vp0CwpdOkHwkxIG1R68Vx0ZpTwpdv4FTJDqSRZ1th7I';
+const SHEET_NAME = 'Página1';
 const WHATSAPP_NUMBER = '5511974176584';
 
 // Estado da aplicação
@@ -141,9 +305,11 @@ const categoryFilter = document.getElementById('categoryFilter');
 const resultsInfo = document.getElementById('resultsInfo');
 const cartBadge = document.getElementById('cartBadge');
 const orderListElement = document.getElementById('order-list');
-const whatsappLink = document.getElementById('whatsappLink');
 const subtotalElement = document.getElementById('subtotal');
+const discountElement = document.getElementById('discount');
+const shippingElement = document.getElementById('shipping');
 const totalElement = document.getElementById('total');
+const discountRow = document.getElementById('discount-row');
 const imageModal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
 const modalCaption = document.getElementById('modalCaption');
@@ -155,27 +321,23 @@ let currentImageIndex = 0;
 
 // --- FUNÇÕES PRINCIPAIS ---
 
-// Carrega os produtos do Google Sheets
 async function loadProducts() {
     try {
         catalogElement.innerHTML = `
             <div class="loading">
                 <i class="fas fa-spinner fa-spin"></i>
-                <p>Carregando produtos do catálogo...</p>
+                <p>Carregando ofertas especiais...</p>
             </div>
         `;
 
-        // URL pública da planilha (formato CSV)
         const sheetUrl = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${SHEET_NAME}`;
-        
         const response = await fetch(sheetUrl);
         const csvText = await response.text();
         
-        // Converte CSV para JSON
         allProducts = parseCSVToProducts(csvText);
-        console.log('Produtos carregados:', allProducts);
         
-        // FILTRA APENAS PRODUTOS DISPONÍVEIS (estoque > 0)
+        
+        // Filtra produtos disponíveis
         allProducts = allProducts.filter(product => product.disponivel > 0);
         
         filteredProducts = allProducts;
@@ -184,7 +346,7 @@ async function loadProducts() {
         updateResultsInfo();
         renderCatalog();
         
-        // Carrega o carrinho do localStorage
+        // Carrega carrinho salvo
         const savedCart = localStorage.getItem('scrapbookCart');
         if (savedCart) {
             cartItems = JSON.parse(savedCart);
@@ -192,12 +354,12 @@ async function loadProducts() {
         }
         
     } catch (error) {
-        console.error('Erro ao carregar produtos:', error);
+        
         catalogElement.innerHTML = `
             <div class="empty-state">
                 <i class="fas fa-exclamation-triangle"></i>
                 <h3>Erro ao carregar o catálogo</h3>
-                <p>Verifique a conexão ou configure a planilha.</p>
+                <p>Verifique a conexão.</p>
                 <button class="btn btn-primary" onclick="loadProducts()">
                     <i class="fas fa-redo"></i> Tentar Novamente
                 </button>
@@ -206,9 +368,6 @@ async function loadProducts() {
     }
 }
 
-// Converte CSV para array de produtos
-// Converte CSV para array de produtos
-// Função corrigida para parse de CSV
 function parseCSVToProducts(csvText) {
     const lines = csvText.split('\n').filter(line => line.trim());
     const headers = lines[0].split(',').map(h => h.replace(/"/g, '').trim());
@@ -217,46 +376,33 @@ function parseCSVToProducts(csvText) {
     
     for (let i = 1; i < lines.length; i++) {
         const values = parseCSVLine(lines[i]);
-        if (values.length >= 6) {
+        if (values.length >= 7) {
             
-            // CORREÇÃO: Tratamento robusto para valores numéricos
-            const precoValue = values[4] || '0';
-            const disponivelValue = values[5] || '0';
-            
-            // Remove caracteres não numéricos exceto ponto e vírgula
-            const precoClean = precoValue.toString().replace(/[^\d,.]/g, '');
-            const disponivelClean = disponivelValue.toString().replace(/[^\d]/g, '');
-            
-            // Converte para número
-            let preco = 0;
-            let disponivel = 0;
-            
-            // Tratamento do preço (pode ter vírgula como separador decimal)
-            if (precoClean.includes(',')) {
-                preco = parseFloat(precoClean.replace(',', '.'));
-            } else {
-                preco = parseFloat(precoClean);
-            }
-            
-            // Tratamento do disponível (sempre inteiro)
-            disponivel = parseInt(disponivelClean);
-            
-            // Se for NaN, define como 0
-            if (isNaN(preco)) preco = 0;
-            if (isNaN(disponivel)) disponivel = 0;
-            
+            // Preço atual e original
+            const precoAtual = parsePrice(values[4]);
+            const precoOriginal = parsePrice(values[6]) || precoAtual;
+            const disponivel = parseInt(values[5] || '0');
+            const vendas = parseInt(values[7] || '0');
+
+            // Calcula desconto
+            const desconto = precoOriginal > precoAtual ? 
+                Math.round(((precoOriginal - precoAtual) / precoOriginal) * 100) : 0;
+
             const product = {
                 id: values[0] || `prod${i}`,
                 nome: values[1] || 'Sem nome',
                 descricao: values[2] || '',
                 categoria: values[3] || 'Geral',
-                preco: preco,
+                preco: precoAtual,
+                precoOriginal: precoOriginal,
+                desconto: desconto,
                 disponivel: disponivel,
+                vendas: vendas,
                 imagens: []
             };
             
-            // Adiciona imagens das colunas 6 em diante
-            for (let j = 6; j < values.length; j++) {
+            // Imagens (colunas a partir da 8)
+            for (let j = 8; j < values.length; j++) {
                 if (values[j] && values[j].trim()) {
                     const nomeImagem = values[j].trim();
                     if (nomeImagem && !nomeImagem.startsWith('http') && !nomeImagem.startsWith('/')) {
@@ -268,29 +414,25 @@ function parseCSVToProducts(csvText) {
             }
             
             if (product.imagens.length === 0) {
-                product.imagens = ['https://via.placeholder.com/300x200?text=Imagem+Indisponível'];
+                product.imagens = ['data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9rPSJtaWRkbGUiIGR5PSIwLjNlbSI+SW1hZ2VtIEluZGlzcG9uw612ZWw8L3RleHQ+PC9zdmc+'];
             }
             
             products.push(product);
-            
-            // DEBUG: Log para verificar os valores
-            console.log(`Produto ${i}:`, {
-                id: product.id,
-                nome: product.nome,
-                precoRaw: values[4],
-                precoClean: precoClean,
-                precoFinal: product.preco,
-                disponivelRaw: values[5],
-                disponivelClean: disponivelClean,
-                disponivelFinal: product.disponivel
-            });
         }
     }
     
     return products;
 }
 
-// Parse correto de linha CSV
+function parsePrice(priceStr) {
+    if (!priceStr) return 0;
+    const clean = priceStr.toString().replace(/[^\d,.]/g, '');
+    if (clean.includes(',')) {
+        return parseFloat(clean.replace(',', '.'));
+    }
+    return parseFloat(clean) || 0;
+}
+
 function parseCSVLine(line) {
     const values = [];
     let current = '';
@@ -298,7 +440,6 @@ function parseCSVLine(line) {
     
     for (let i = 0; i < line.length; i++) {
         const char = line[i];
-        
         if (char === '"') {
             inQuotes = !inQuotes;
         } else if (char === ',' && !inQuotes) {
@@ -308,7 +449,6 @@ function parseCSVLine(line) {
             current += char;
         }
     }
-    
     values.push(current.trim());
     return values.map(v => v.replace(/"/g, ''));
 }
@@ -322,6 +462,12 @@ function populateCategoryFilter() {
         option.textContent = cat;
         categoryFilter.appendChild(option);
     });
+    
+    // Adiciona opção de promoções
+    const promoOption = document.createElement('option');
+    promoOption.value = 'promocao';
+    promoOption.textContent = 'Em Promoção';
+    categoryFilter.appendChild(promoOption);
 }
 
 function filterAndPaginate() {
@@ -331,7 +477,14 @@ function filterAndPaginate() {
     filteredProducts = allProducts.filter(product => {
         const matchesSearch = product.nome.toLowerCase().includes(searchTerm) || 
                             (product.descricao && product.descricao.toLowerCase().includes(searchTerm));
-        const matchesCategory = selectedCategory === 'all' || product.categoria === selectedCategory;
+        
+        let matchesCategory = true;
+        if (selectedCategory === 'promocao') {
+            matchesCategory = product.desconto > 0;
+        } else if (selectedCategory !== 'all') {
+            matchesCategory = product.categoria === selectedCategory;
+        }
+        
         return matchesSearch && matchesCategory;
     });
 
@@ -342,15 +495,12 @@ function filterAndPaginate() {
 
 function updateResultsInfo() {
     const totalProducts = filteredProducts.length;
-    const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE + 1;
-    const endIndex = Math.min(currentPage * PRODUCTS_PER_PAGE, totalProducts);
+    const promoCount = filteredProducts.filter(p => p.desconto > 0).length;
     
     if (totalProducts === 0) {
         resultsInfo.textContent = 'Nenhum produto encontrado';
-    } else if (totalProducts <= PRODUCTS_PER_PAGE) {
-        resultsInfo.textContent = `Mostrando ${totalProducts} produto(s)`;
     } else {
-        resultsInfo.textContent = `Mostrando ${startIndex}-${endIndex} de ${totalProducts} produto(s)`;
+        resultsInfo.textContent = `${totalProducts} produto(s) • ${promoCount} em promoção`;
     }
 }
 
@@ -378,30 +528,62 @@ function renderCatalog() {
                                  product.disponivel > 0 ? 'low-stock' : 'out-of-stock';
         const availabilityIcon = product.disponivel > 3 ? 'fa-check-circle' : 
                                 product.disponivel > 0 ? 'fa-exclamation-circle' : 'fa-times-circle';
-        const availabilityText = product.disponivel > 3 ? `Disponível: ${product.disponivel}` : 
-                                product.disponivel > 0 ? `Poucas unidades: ${product.disponivel}` : 'Indisponível';
+        const availabilityText = product.disponivel > 3 ? `${product.disponivel} disponíveis` : 
+                                product.disponivel > 0 ? `Últimas ${product.disponivel} unidades!` : 'Indisponível';
 
         const currentQty = cartItems[product.id] || 0;
-        
         const hasMultipleImages = product.imagens && product.imagens.length > 1;
-        const mainImage = product.imagens ? product.imagens[0] : 'https://via.placeholder.com/300x200';
+        const mainImage = product.imagens ? product.imagens[0] : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIwLjNlbSI+SW1hZ2VtIEluZGlzcG9uw612ZWw8L3RleHQ+PC9zdmc+';
+
+        // Badge de promoção
+        const promoBadge = product.desconto > 0 ? 
+            `<div class="promo-badge">-${product.desconto}% OFF</div>` : '';
+        
+        // Container de preço com original e atual
+        const priceHTML = product.desconto > 0 ? `
+            <div class="price-container">
+                <span class="current-price">R$ ${product.preco.toFixed(2).replace('.', ',')}</span>
+                <span class="original-price">R$ ${product.precoOriginal.toFixed(2).replace('.', ',')}</span>
+                <span class="discount-badge">-${product.desconto}%</span>
+            </div>
+        ` : `
+            <div class="product-price">R$ ${product.preco.toFixed(2).replace('.', ',')}</div>
+        `;
+
+        // Descrição com sistema "Leia mais"
+        const descricaoHTML = product.descricao ? `
+            <div class="product-description">
+                <details class="descricao-detalhes">
+                    <summary class="descricao-resumo">
+                        <span class="descricao-curta">
+                            ${product.descricao.length > 60 ? product.descricao.substring(0, 60) + '...' : product.descricao}
+                        </span>
+                        ${product.descricao.length > 60 ? `<span class="ler-mais-texto">mais</span>` : ''}
+                    </summary>
+                    ${product.descricao.length > 60 ? `
+                        <span class="descricao-completa">${product.descricao.substring(60)}</span>
+                    ` : ''}
+                </details>
+            </div>
+        ` : '';
 
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
+            ${promoBadge}
             <div class="product-image-container">
                 <img src="${mainImage}" alt="${product.nome}" class="product-image" 
-                     onerror="this.onerror=null;this.src='https://via.placeholder.com/240x200?text=Imagem+Não+Disponível'">
+                     onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIwLjNlbSI+SW1hZ2VtIEluZGlzcG9uw612ZWw8L3RleHQ+PC9zdmc+'>
                 <div class="zoom-icon">
                     <i class="fas fa-search-plus"></i>
                 </div>
                 ${hasMultipleImages ? `<div class="image-counter"><i class="fas fa-images"></i> ${product.imagens.length}</div>` : ''}
             </div>
             <div class="product-info">
-                <div class="product-name">${product.nome}</div>
-                ${product.descricao ? `<div class="product-description">${product.descricao}</div>` : ''}
+                <div class="product-name">${product.nome} </div>
+                ${descricaoHTML}
                 <div class="product-id">Cód: ${product.id}</div>
-                <div class="product-price">R$ ${product.preco.toFixed(2).replace('.', ',')}</div>
+                ${priceHTML}
                 <div class="availability ${availabilityClass}">
                     <i class="fas ${availabilityIcon}"></i> ${availabilityText}
                 </div>
@@ -419,6 +601,10 @@ function renderCatalog() {
                         <i class="fas fa-plus"></i>
                     </button>
                 </div>
+                
+                <button class="buy-now-btn" onclick="addToCartAndHighlight('${product.id}')">
+                    <i class="fas fa-bolt"></i> COMPRAR
+                </button>
             </div>
         `;
 
@@ -431,6 +617,40 @@ function renderCatalog() {
     });
     
     renderPagination();
+}
+function scrollToOrderSection() {
+    const orderSection = document.getElementById('order-section');
+    
+    if (Object.keys(cartItems).length === 0) {
+        alert('Seu carrinho está vazio! Adicione produtos antes de ver o pedido.');
+        return;
+    }
+    
+    if (orderSection) {
+        orderSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // Gera o pedido também
+        generateOrderList();
+        
+        // Efeito de destaque
+        orderSection.style.boxShadow = '0 0 0 3px #3498db';
+        setTimeout(() => {
+            orderSection.style.boxShadow = '';
+        }, 2000);
+    }
+}
+function addToCartAndHighlight(productId) {
+    changeQuantity(productId, 1);
+    
+    // Efeito visual de confirmação
+    const card = document.querySelector(`[onclick*="${productId}"]`).closest('.product-card');
+    card.style.boxShadow = '0 0 0 3px #27ae60';
+    setTimeout(() => {
+        card.style.boxShadow = '';
+    }, 1000);
 }
 
 function renderPagination() {
@@ -528,6 +748,7 @@ function updateCartBadge() {
 function generateOrderList() {
     let orderItems = [];
     let subtotal = 0;
+    let totalDiscount = 0;
     let itemCount = 0;
 
     Object.keys(cartItems).forEach(productId => {
@@ -536,59 +757,263 @@ function generateOrderList() {
             const product = allProducts.find(p => p.id === productId);
             if (product) {
                 const itemTotal = qty * product.preco;
-                orderItems.push(`• (Cód: ${product.id}) :${qty}x ${product.nome} - R$ ${itemTotal.toFixed(2).replace('.', ',')}`);
+                const itemDiscount = qty * (product.precoOriginal - product.preco);
+                
+                orderItems.push(`• (Cód: ${product.id}) ${qty}x ${product.nome} - R$ ${itemTotal.toFixed(2).replace('.', ',')}`);
                 subtotal += itemTotal;
+                totalDiscount += itemDiscount > 0 ? itemDiscount : 0;
                 itemCount += qty;
             }
         }
     });
 
+    const shipping = subtotal >= 50 ? 0 : 10;
+    const total = subtotal + shipping;
+
+    // Atualiza resumo financeiro
     subtotalElement.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
-    totalElement.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+    
+    // Mostra/oculta linha de descontos
+    if (totalDiscount > 0) {
+        discountElement.textContent = `-R$ ${totalDiscount.toFixed(2).replace('.', ',')}`;
+        discountRow.style.display = 'flex';
+    } else {
+        discountRow.style.display = 'none';
+    }
+    
+    shippingElement.textContent = shipping === 0 ? 'GRÁTIS 🎉' : `R$ ${shipping.toFixed(2).replace('.', ',')}`;
+    totalElement.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
 
     if (orderItems.length === 0) {
         orderListElement.value = "Seu carrinho está vazio. Adicione produtos ao carrinho antes de gerar o pedido.";
-        whatsappLink.href = "#";
-        whatsappLink.classList.remove('btn-success');
-        whatsappLink.classList.add('btn-secondary');
         return;
     }
 
-    let listText = `Olá! Gostaria de fazer o pedido de produto(s):\n\n`;
+    const now = new Date();
+    const dateTime = now.toLocaleString('pt-BR');
+
+    let listText = `🛍️ *PEDIDO - CATÁLOGO MV* 🛍️\n`;
+    listText += `📅 ${dateTime}\n\n`;
     listText += orderItems.join('\n');
     listText += `\n\n`;
+    listText += `📊 *RESUMO:*\n`;
     listText += `Subtotal: R$ ${subtotal.toFixed(2).replace('.', ',')}\n`;
+    if (totalDiscount > 0) {
+        listText += `Descontos: -R$ ${totalDiscount.toFixed(2).replace('.', ',')}\n`;
+    }
+    listText += `Frete: ${shipping === 0 ? 'GRÁTIS 🎉' : 'R$ ' + shipping.toFixed(2).replace('.', ',')}\n`;
+    listText += `*TOTAL: R$ ${total.toFixed(2).replace('.', ',')}*\n\n`;
     listText += `Total de itens: ${itemCount}\n\n`;
-    listText += `Por favor, confirme a disponibilidade e informe as formas de pagamento e entrega.\n\n`;
-    listText += `Nome: \n`;
-    listText += `WhatsApp: \n`;
-    listText += `Endereço para entrega:`;
+    listText += `🔄 *Status do Pedido:* ENVIADO\n`;
+    listText += `⏰ *Data/Hora:* ${dateTime}\n\n`;
+    listText += `Por favor, confirme a disponibilidade!\n\n`;
+    listText += `👤 *Dados do Cliente:*\n`;
+    listText += `Nome: _________\n`;
+    listText += `WhatsApp: _________\n`;
+    listText += `📍 Endereço: _________`;
 
     orderListElement.value = listText;
-    
-    const whatsappMessage = encodeURIComponent(listText);
-    whatsappLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
-    whatsappLink.classList.remove('btn-secondary');
-    whatsappLink.classList.add('btn-success');
-    
-    document.getElementById('order-section').scrollIntoView({ behavior: 'smooth' });
 }
 
-function copyOrderList() {
-    orderListElement.select();
-    orderListElement.setSelectionRange(0, 99999);
+function sendOrder() {
+    if (Object.keys(cartItems).length === 0) {
+        alert('Seu carrinho está vazio! Adicione produtos antes de enviar o pedido.');
+        return;
+    }
+
+    // Gera o pedido primeiro para mostrar o resumo
+    generateOrderList();
+    
+    // Confirmação com detalhes do pedido
+    const itemCount = Object.values(cartItems).reduce((sum, qty) => sum + qty, 0);
+    const subtotal = parseFloat(subtotalElement.textContent.replace('R$ ', '').replace(',', '.'));
+    const total = parseFloat(totalElement.textContent.replace('R$ ', '').replace(',', '.'));
+    
+    const confirmationMessage = 
+`Itens no pedido: ${itemCount}
+Valor total: R$ ${total.toFixed(2).replace('.', ',')}
+• Seu pedido será enviado para o WhatsApp
+• Os itens serão reservados no estoque
+• Você receberá instruções de pagamento
+Deseja continuar?`;
+
+    if (!confirm(confirmationMessage)) {
+        return; // Usuário cancelou
+    }
+
+    // Baixa no estoque localmente
+    updateStockAfterOrder();
+
+    const listText = orderListElement.value;
+    const whatsappMessage = encodeURIComponent(listText);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+    
+    // Abre WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Feedback visual no próprio site
+    const btn = event.target;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> Pedido Enviado!';
+    btn.style.background = '#27ae60';
+    
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+    }, 3000);
+
+    // Limpa carrinho após envio
+    setTimeout(() => {
+        resetCartAfterOrder();
+    }, 1000);
+}
+// COLE A URL DO SEU APPS SCRIPT AQUI (a que você copiou)
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyxP2BtR8b5M7sZ488nR4I5K1bF3u4aMgIho6UJLXJldbmkakfRal2PYfmK0D9Vm8MOQ/exec';
+
+async function updateStockAfterOrder() {
+    // Baixa no estoque localmente
+    Object.keys(cartItems).forEach(productId => {
+        const qty = cartItems[productId];
+        if (qty > 0) {
+            const product = allProducts.find(p => p.id === productId);
+            if (product) {
+                product.disponivel -= qty;
+                const filteredProduct = filteredProducts.find(p => p.id === productId);
+                if (filteredProduct) {
+                    filteredProduct.disponivel -= qty;
+                }
+            }
+        }
+    });
+
+    // Atualiza estoque na planilha automaticamente
+    try {
+        const updates = {};
+        Object.keys(cartItems).forEach(productId => {
+            if (cartItems[productId] > 0) {
+                updates[productId] = cartItems[productId];
+            }
+        });
+
+        if (Object.keys(updates).length > 0) {
+           
+            
+            const response = await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    updates: updates
+                })
+            });
+            renderCatalog();
+            
+        }
+    } catch (error) {
+        //console.error('❌ Erro ao atualizar estoque:', error);
+        // Mesmo com erro, continua o processo
+    }
+}
+
+function sendOrder() {
+    if (Object.keys(cartItems).length === 0) {
+        alert('Seu carrinho está vazio! Adicione produtos antes de enviar o pedido.');
+        return;
+    }
+
+    // Gera o pedido primeiro para mostrar o resumo
+    generateOrderList();
+    
+    // Confirmação com detalhes do pedido
+    const itemCount = Object.values(cartItems).reduce((sum, qty) => sum + qty, 0);
+    const subtotal = parseFloat(subtotalElement.textContent.replace('R$ ', '').replace(',', '.'));
+    const total = parseFloat(totalElement.textContent.replace('R$ ', '').replace(',', '.'));
+    
+    const confirmationMessage = 
+`
+Itens no pedido: ${itemCount}
+Valor total: R$ ${total.toFixed(2).replace('.', ',')}
+
+• Pedido enviado para WhatsApp
+• Itens reservados no sistema
+Deseja continuar?`;
+
+    if (!confirm(confirmationMessage)) {
+        return; // Usuário cancelou
+    }
+
+    // Baixa no estoque localmente e na planilha
+    updateStockAfterOrder();
+
+    const listText = orderListElement.value;
+    const whatsappMessage = encodeURIComponent(listText);
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+    
+    // Abre WhatsApp
+    window.open(whatsappUrl, '_blank');
+    
+    // Feedback visual no próprio site
+    const btn = event.target;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i> Pedido Enviado!';
+    btn.style.background = '#27ae60';
+    
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+    }, 3000);
+
+    // Mostra confirmação
+    alert('✅ Pedido enviado com sucesso!\n\n');
+
+    // Limpa carrinho após envio
+    setTimeout(() => {
+        resetCartAfterOrder();
+    }, 2000);
+}
+
+// REMOVA estas funções se existirem (não são mais necessárias):
+// generateManualStockReport()
+// copyStockReportToClipboard()
+// copyToClipboard()
+   
+function copyStockReportToClipboard(text) {
+    // Cria um elemento temporário para copiar
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
     
     try {
         document.execCommand('copy');
-        const originalText = orderListElement.placeholder;
-        orderListElement.placeholder = "Pedido copiado para a área de transferência!";
-        setTimeout(() => {
-            orderListElement.placeholder = originalText;
-        }, 2000);
+        //console.log('📋 Relatório copiado para área de transferência!');
     } catch (err) {
-        console.error('Falha ao copiar texto: ', err);
-        alert('Não foi possível copiar o pedido. Selecione e copie manualmente.');
+        //console.log('❌ Não foi possível copiar o relatório automaticamente');
+        //console.log('📋 Relatório completo:', text);
     }
+    
+    document.body.removeChild(textarea);
+}
+
+function resetCartAfterOrder() {
+    // Limpa carrinho mas mantém o pedido gerado por um tempo
+    const savedOrder = orderListElement.value;
+    
+    cartItems = {};
+    localStorage.removeItem('scrapbookCart');
+    updateCartBadge();
+    
+    // Atualiza o catálogo para refletir novo estoque
+    renderCatalog();
+    
+    // Mantém o pedido visível por mais 5 segundos
+    setTimeout(() => {
+        if (Object.keys(cartItems).length === 0) {
+            orderListElement.value = "Pedido enviado com sucesso! \n\nObrigado pela compra. Em breve entraremos em contato pelo WhatsApp.";
+        }
+    }, 5000);
 }
 
 function resetCart() {
@@ -607,8 +1032,25 @@ function resetCart() {
     }
 }
 
+function copyOrderList() {
+    orderListElement.select();
+    orderListElement.setSelectionRange(0, 99999);
+    
+    try {
+        document.execCommand('copy');
+        const originalText = orderListElement.placeholder;
+        orderListElement.placeholder = "Pedido copiado para a área de transferência!";
+        setTimeout(() => {
+            orderListElement.placeholder = originalText;
+        }, 2000);
+    } catch (err) {
+        //console.error('Falha ao copiar texto: ', err);
+        alert('Não foi possível copiar o pedido. Selecione e copie manualmente.');
+    }
+}
+
 function openImageModal(product) {
-    currentImages = product.imagens || ['https://via.placeholder.com/300x200'];
+    currentImages = product.imagens || ['data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIwLjNlbSI+SW1hZ2VtIEluZGlzcG9uw612ZWw8L3RleHQ+PC9zdmc+'];
     currentImageIndex = 0;
     
     imageModal.style.display = "block";
@@ -620,6 +1062,7 @@ function openImageModal(product) {
 }
 
 function updateModalControls() {
+    // Remove controles anteriores
     const existingPrevBtn = document.getElementById('modalPrevBtn');
     const existingNextBtn = document.getElementById('modalNextBtn');
     const existingIndicator = document.querySelector('.image-indicator');
@@ -627,7 +1070,9 @@ function updateModalControls() {
     if (existingNextBtn) existingNextBtn.remove();
     if (existingIndicator) existingIndicator.remove();
     
+    // Se tiver múltiplas imagens, adiciona controles
     if (currentImages.length > 1) {
+        // Botão anterior
         const prevBtn = document.createElement('button');
         prevBtn.id = 'modalPrevBtn';
         prevBtn.className = 'modal-nav-btn modal-prev';
@@ -640,6 +1085,7 @@ function updateModalControls() {
         };
         imageModal.appendChild(prevBtn);
         
+        // Botão próximo
         const nextBtn = document.createElement('button');
         nextBtn.id = 'modalNextBtn';
         nextBtn.className = 'modal-nav-btn modal-next';
@@ -652,6 +1098,7 @@ function updateModalControls() {
         };
         imageModal.appendChild(nextBtn);
         
+        // Indicador
         const imageIndicator = document.createElement('div');
         imageIndicator.className = 'image-indicator';
         imageIndicator.innerHTML = `${currentImageIndex + 1} / ${currentImages.length}`;
@@ -692,8 +1139,7 @@ searchInput.addEventListener('input', () => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(filterAndPaginate, 300);
 });
+
     </script>
 </body>
-
 </html>
-
